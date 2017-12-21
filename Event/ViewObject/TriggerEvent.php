@@ -33,7 +33,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @version    2.3
  * @link       http://opensource.org/licenses/gpl-license.php
  * @since      2015-02-16
- * 
+ *
  */
 class TriggerEvent extends Event
 {
@@ -41,35 +41,35 @@ class TriggerEvent extends Event
      * @var EventArgs $eventArgs
      */
     private $eventArgs;
-    
+
     /**
      * @var Object $entities
      */
     private $entities;
-    
+
     /**
      * @var Object $entities
      */
-    private $entity;    
-    
+    private $entity;
+
     /**
      * @var array $options
      */
-    private $options;  
-    
+    private $options;
+
      /**
      * @var ContainerInterface
      */
-    private $container;       
-   
-    
+    private $container;
+
+
     public function __construct($eventArgs, ContainerInterface $container, $entity)
     {
         $this->eventArgs  = $eventArgs;
         $this->container  = $container;
         $this->entity     = $entity;
     }
-    
+
     /**
      * @return eventArgs
      */
@@ -77,7 +77,7 @@ class TriggerEvent extends Event
     {
     	return $this->container;
     }
-    
+
     /**
      * @return eventArgs
      */
@@ -85,7 +85,7 @@ class TriggerEvent extends Event
     {
     	return $this->eventArgs;
     }
-    
+
     /**
      * @return locale
      */
@@ -93,15 +93,15 @@ class TriggerEvent extends Event
     {
     	return $this->options;
     }
-    
+
     /**
      * @return  void
      */
     public function setOptions($option, $status)
     {
     	$this->options[$status][] = $option;
-    }   
-    
+    }
+
     /**
      * @return redirect
      */
@@ -109,39 +109,39 @@ class TriggerEvent extends Event
     {
     	return $this->entities;
     }
-    
+
     /**
      * @return  void
      */
     public function setEntities($entity, $status = "persist")
     {
     	$this->entities[$status][] = $entity;
-    }   
-    
+    }
+
     /**
      * @return object entity
      */
     public function getEntity()
     {
     	return $this->entity;
-    }   
-    
+    }
+
     /**
      * @return object Manager
      */
     public function getEntityManager()
     {
     	return $this->eventArgs->getEntityManager();
-    }      
-    
+    }
+
     /**
      * @return object UnitOfWork Manager
      */
     public function getUnitOfWork()
     {
     	return $this->getEntityManager()->getUnitOfWork();
-    }  
-    
+    }
+
    /**
      * Return the token object.
      *
@@ -151,7 +151,7 @@ class TriggerEvent extends Event
      */
     public function getToken()
     {
-        return  $this->container->get('security.context')->getToken();
+        return  $this->container->get('security.token_storage')->getToken();
     }
 
     /**
@@ -164,8 +164,8 @@ class TriggerEvent extends Event
     public function getUserName()
     {
         return $this->getToken()->getUser()->getUsername();
-    }    
-    
+    }
+
     /**
      * Return the user permissions.
      *
@@ -176,7 +176,7 @@ class TriggerEvent extends Event
     public function getUserPermissions()
     {
         return $this->getToken()->getUser()->getPermissions();
-    }  
+    }
 
     /**
      * Return the user roles.
@@ -188,8 +188,8 @@ class TriggerEvent extends Event
     public function getUserRoles()
     {
         return $this->getToken()->getUser()->getRoles();
-    }    
-    
+    }
+
     /**
      * Return if yes or no the user is anonymous token.
      *
@@ -208,8 +208,8 @@ class TriggerEvent extends Event
         } else {
             return false;
         }
-    }    
-    
+    }
+
     /**
      * Return if yes or no the user is UsernamePassword token.
      *
@@ -224,5 +224,5 @@ class TriggerEvent extends Event
         } else {
             return false;
         }
-    }    
+    }
 }
