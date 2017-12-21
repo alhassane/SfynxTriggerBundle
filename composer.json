@@ -21,8 +21,6 @@
   },
 
   "require-dev": {
-    "symfony/phpunit-bridge": "~2.7|~3.0",
-    "phpunit/phpunit": "*"
   },
 
   "suggest": {
@@ -39,7 +37,7 @@
 
   "extra": {
     "branch-alias": {
-      "dev-master": "2.8-dev"
+      "dev-master": "2.x-dev"
     }
   }
 }
