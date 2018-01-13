@@ -20,86 +20,86 @@ services:
     # configuration of the persist Entities container
     # 
     sfynx.trigger.entities.listener:
-        class: %sfynx.trigger.entities.listener.class%
+        class: '%sfynx.trigger.entities.listener.class%'
         arguments: ['@service_container']
         
     #               
     # Doctrine events Configuration
     #            
     sfynx.trigger.onclear_listener:
-        class: %sfynx.trigger.listener.onclear.class%
+        class: '%sfynx.trigger.listener.onclear.class%'
         arguments: ['@service_container']
         tags:
             - { name: doctrine.event_listener, event: onClear, connexion: default }  
             
     sfynx.trigger.schema_listener:
-        class: %sfynx.trigger.listener.schema.class%
+        class: '%sfynx.trigger.listener.schema.class%'
         arguments: ['@service_container']
         tags:
             - { name: doctrine.event_listener, event: postGenerateSchema, connexion: default }
             
     sfynx.trigger.postload_listener:
-        class: %sfynx.trigger.listener.postload.class%
+        class: '%sfynx.trigger.listener.postload.class%'
         arguments: ['@service_container']
         tags:
             - { name: doctrine.event_listener, event: postLoad, connexion: default }
 
     sfynx.trigger.loadclassmetadata_listener:
-        class: %sfynx.trigger.listener.loadclassmetadata.class%
+        class: '%sfynx.trigger.listener.loadclassmetadata.class%'
         arguments: ['@service_container']
         tags:
             - { name: doctrine.event_listener, event: loadClassMetadata, connexion: default }
             
     sfynx.trigger.preflush_listener:
-        class: %sfynx.trigger.listener.preflush.class%
+        class: '%sfynx.trigger.listener.preflush.class%'
         arguments: ['@service_container']
         tags:
             - { name: doctrine.event_listener, event: preFlush, connexion: default }            
 
     sfynx.trigger.onflush_listener:
-        class: %sfynx.trigger.listener.onflush.class%
+        class: '%sfynx.trigger.listener.onflush.class%'
         arguments: ['@service_container']
         tags:
             - { name: doctrine.event_listener, event: onFlush, connexion: default }
             
     sfynx.trigger.postflush_listener:
-        class: %sfynx.trigger.listener.postflush.class%
+        class: '%sfynx.trigger.listener.postflush.class%'
         arguments: ['@service_container']
         tags:
             - { name: doctrine.event_listener, event: postFlush, connexion: default }            
 
     sfynx.trigger.preremove_listener:
-        class: %sfynx.trigger.listener.preremove.class%
+        class: '%sfynx.trigger.listener.preremove.class%'
         arguments: ['@service_container']
         tags:
             - { name: doctrine.event_listener, event: preRemove, connexion: default }
 
     sfynx.trigger.postremove_listener:
-        class: %sfynx.trigger.listener.postremove.class%
+        class: '%sfynx.trigger.listener.postremove.class%'
         arguments: ['@service_container']
         tags:
             - { name: doctrine.event_listener, event: postRemove, connexion: default }
 
     sfynx.trigger.prepersist_listener:
-        class: %sfynx.trigger.listener.prepersist.class%
+        class: '%sfynx.trigger.listener.prepersist.class%'
         arguments: ['@service_container']
         tags:
             - { name: doctrine.event_listener, event: prePersist, connexion: default }   
             
     sfynx.trigger.postpersist_listener:
-        class: %sfynx.trigger.listener.postpersist.class%
+        class: '%sfynx.trigger.listener.postpersist.class%'
         arguments: ['@service_container']
         tags:
             - { name: doctrine.event_listener, event: postPersist, connexion: default }
 
     sfynx.trigger.preupdate_listener:
-        class: %sfynx.trigger.listener.preupdate.class%
+        class: '%sfynx.trigger.listener.preupdate.class%'
         arguments: ['@service_container']
         tags:
             - { name: doctrine.event_listener, event: preUpdate, connexion: default } 
 
     sfynx.trigger.postupdate_listener:
-        class: %sfynx.trigger.listener.postupdate.class%
+        class: '%sfynx.trigger.listener.postupdate.class%'
         arguments: ['@service_container']
         tags:
             - { name: doctrine.event_listener, event: postUpdate, connexion: default }           
